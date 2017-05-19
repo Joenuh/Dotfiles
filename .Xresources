@@ -1,0 +1,104 @@
+#if __has_include(".extend.Xresources")
+#include ".extend.Xresources"
+#endif
+
+! ^ The above lines are no comments!
+! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
+! config can be added there or also here below.
+! For comments use "!"
+
+Xft.dpi: 96
+Xft.antialias: true 
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+XTerm*background: #2b2b2b
+XTerm*foreground: #e7e7e7
+XTerm*pointerColor: #16A085
+XTerm*faceName: Fixed
+XTerm*faceSize: 11
+
+URxvt.scrollBar: false
+URxvt*font:  xft:inconsolata:size=13:antialias=true,xft:DejaVu Sans:size=13:antialias=true,xft:Sauce Code Powerline:antialias=true:hinting=true:size=13
+! colors
+*.cursorColor:  #ebdbb2
+! hard contrast: *background: #1d2021
+*.background: #282828
+! soft contrast: *background: #32302f
+*.foreground: #ebdbb2
+! Black + DarkGrey
+*.color0:  #282828
+*.color8:  #928374
+! DarkRed + Red
+*.color1:  #cc241d
+*.color9:  #fb4934
+! DarkGreen + Green
+*.color2:  #98971a
+*.color10: #b8bb26
+! DarkYellow + Yellow
+*.color3:  #d79921
+*.color11: #fabd2f
+! DarkBlue + Blue
+*.color4:  #458588
+*.color12: #83a598
+! DarkMagenta + Magenta
+*.color5:  #b16286
+*.color13: #d3869b
+! DarkCyan + Cyan
+*.color6:  #689d6a
+*.color14: #8ec07c
+! LightGrey + White
+*.color7:  #a89984
+*.color15: #ebdbb2
+! for 256 color stuff
+*.color24:  #076678
+*.color66:  #427b58
+*.color88:  #9d0006
+*.color96:  #8f3f71
+*.color100: #79740e
+*.color108: #8ec07c
+*.color109: #83a598
+*.color130: #af3a03
+*.color136: #b57614
+*.color142: #b8bb26
+*.color167: #fb4934
+*.color175: #d3869b
+*.color208: #fe8019
+*.color214: #fabd2f
+*.color223: #ebdbb2
+*.color228: #f4e8ba
+*.color229: #fdf4c1
+*.color230: #ffffc8
+*.color234: #1d2021
+*.color235: #282828
+*.color236: #32302f
+*.color237: #3c3836
+*.color239: #504945
+*.color241: #665c54
+*.color243: #7c6f64
+*.color244: #928374
+*.color245: #928374
+*.color246: #a89984
+*.color248: #bdae93
+*.color250: #d5c4a1
+
+
+!!--[Rofi]-------------------------------------------------------------
+
+#define 	dark_grey 		#282828
+#define 	dark_blue 		#40506b
+#define 	dark_purple	 	#404052
+#define 	light_pink 		#9e4c55
+#define 	light_red 		#6c455a
+#define 	light_green 		#93acac
+#define 	light_yellow 		#f8b195
+#define 	ice_blue 		#c7ccd1
+
+rofi.font: System San Francisco Display 20
+rofi.color-window: dark_grey, light_pink, dark_purple
+rofi.color-normal: dark_grey, dark_purple, dark_grey, light_pink, dark_purple
+rofi.lines: 3
+rofi.bw: 0
