@@ -18,7 +18,6 @@ orange = #de935f
 yellow = #d79921
 
 [bar/master]
-monitor = HDMI-0
 width = 100%
 height = 35 
 separator = " "
@@ -30,7 +29,17 @@ font-0 = System San Francisco Display:pixelsize=13
 font-1 = FontAwesome:pixelsize=13
 font-2 = System San Francisco Display:pixelsize=13
 
-[bar/bottom]
+[bar/main]
+monitor = DP-2
+inherit = bar/master
+bottom = false
+
+modules-left = workspaces
+modules-center = title
+modules-right = cpu ram time
+
+[bar/secondary]
+monitor = DP-4
 inherit = bar/master
 bottom = false
 
@@ -72,6 +81,7 @@ type = internal/i3
 enable-click = true
 enable-scroll = false
 strip-wsnumbers = true
+pin-workspaces = true
 
 ws-icon-0 = 1:web; 
 ws-icon-1 = 2:mail;
