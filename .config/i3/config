@@ -100,7 +100,7 @@ bindsym $mod+a focus parent
 set $wsweb     1 
 set $wsmail    2 
 set $wspass    3 
-set $wsterm    4 
+set $wsterm    4 
 set $ws5       5 
 set $ws6       6 
 set $ws7       7 
@@ -111,6 +111,7 @@ set $ws10      10 
 workspace "$wsweb"  output $mainscreen
 workspace "$wsmail" output $sidescreen
 workspace "$wspass" output $sidescreen
+workspace "$wsterm" output $sidescreen
 
 # switch to workspace
 bindsym $mod+1 workspace $wsweb
@@ -124,6 +125,21 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10 
 
+# move to workspace
+bindsym $mod+Shift+1 move container to workspace $wsweb
+bindsym $mod+Shift+2 move container to workspace $wsmail
+bindsym $mod+Shift+3 move container to workspace $wspass
+bindsym $mod+Shift+4 move container to workspace $wsterm
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+# lock screen and suspend
+bindsym $mod+End exec --no-startup-id "i3lock -c 000000 && systemctl suspend"
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -171,7 +187,7 @@ set $urgent-bg-color     #E53935
 #client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 #Gaps
-gaps inner 20
+gaps inner 25
 gaps outer 3
 
 # Add window titles
@@ -179,11 +195,14 @@ for_window [class="^.*"] border pixel 0
 
 assign [class="Thunderbird"] $wsmail
 assign [class="keepassxc"] $wspass
+assign [class="Liferea"] $wsterm
 
-exec_always feh --bg-scale /home/joenuh/Pictures/wall1.jpg
+exec_always wal -i /home/joenuh/Pictures/wall5.jpg
 exec_always ~/.config/polybar/launch.sh
 exec redshift -t 4400:2500
 exec firefox-nightly
 exec thunderbird
 exec_always xrdb .Xresources
 exec keepassxc
+exec compton
+exec liferea
