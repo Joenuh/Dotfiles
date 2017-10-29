@@ -38,6 +38,11 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# start nautilus
+bindsym $mod+n exec nautilus
+
+# lock screen
+bindsym $mod+x exec /home/joenuh/lockscript.sh 
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
@@ -139,7 +144,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 
 # lock screen and suspend
-bindsym $mod+End exec --no-startup-id "i3lock -c 000000 && systemctl suspend"
+bindsym $mod+End exec --no-startup-id "./lockscript.sh && systemctl suspend"
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -173,31 +178,40 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #282828
-set $inactive-bg-color   #282828
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+#set $bg-color 	         #282828
+#set $inactive-bg-color   #282828
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #E53935
+
+set_from_resource $fg i3wm.color1 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $gg i3wm.color3 #f0f0f0
 
 # window colors
-#                       border              background         text                 indicator
-#client.focused          $bg-color           $bg-color          $text-color          #00ff00
-#client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
-#client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
-#client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+#                       border	background	text	indicator	child_border
+client.focused          $fg 	$bg             $fg     $bg		$fg
+client.unfocused        $gg     $bg	        $fg     $bg		$gg
+client.focused_inactive $bg     $bg             $fg	$bg		$bg
+client.urgent           $bg     $bg   	        $fg     $bg		$bg
+client.placeholder	$bg	$bg		$fg	$bg		$bg
+
+client.background	$bg
 
 #Gaps
 gaps inner 25
-gaps outer 3
+gaps outer 10
+
 
 # Add window titles
 for_window [class="^.*"] border pixel 0
+for_window [class="URxvt"] border pixel 5
 
 assign [class="Thunderbird"] $wsmail
 assign [class="keepassxc"] $wspass
 assign [class="Liferea"] $wsterm
 
-exec_always wal -i /home/joenuh/Pictures/wall5.jpg
+exec_always wal -i /home/joenuh/Pictures/wall9.jpg
 exec_always ~/.config/polybar/launch.sh
 exec redshift -t 4400:2500
 exec firefox-nightly
