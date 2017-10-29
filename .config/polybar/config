@@ -5,8 +5,8 @@ margin-top = 5
 margin-bottom = 5
 
 [colors]
-background = #282828
-foreground = #b7b8b9
+background = ${xrdb:color0}
+foreground = ${xrdb:color7}
 black = ${colors.background}
 white = ${colors.foreground}
 transparent = #00ffffff
